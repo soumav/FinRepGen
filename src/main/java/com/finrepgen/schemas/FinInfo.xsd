@@ -1,0 +1,87 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FinancialInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Companies">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="ID"/>
+                    <xs:element type="xs:string" name="CompanyName"/>
+                    <xs:element type="xs:string" name="Industry"/>
+                    <xs:element name="FinancialPeriodData" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="From"/>
+                          <xs:element type="xs:string" name="To"/>
+                          <xs:element name="Metrics">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Metric" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="Name"/>
+                                      <xs:element type="xs:string" name="Unit"/>
+                                      <xs:element type="xs:float" name="Value"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Teams">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Team" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="ID"/>
+                    <xs:element name="Users">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="User" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:int" name="Id"/>
+                                <xs:element type="xs:string" name="Name"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Coverage">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="IndustryCovered"/>
+                          <xs:element name="CompanyIDList">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="ID" maxOccurs="unbounded" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
