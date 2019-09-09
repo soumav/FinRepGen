@@ -14,8 +14,8 @@
                     <xs:element name="FinancialPeriodData" maxOccurs="unbounded" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element type="xs:string" name="From"/>
-                          <xs:element type="xs:string" name="To"/>
+                          <xs:element type="xs:date" name="From"/>
+                          <xs:element type="xs:date" name="To"/>
                           <xs:element name="Metrics">
                             <xs:complexType>
                               <xs:sequence>
@@ -55,7 +55,7 @@
                               <xs:sequence>
                                 <xs:element type="xs:int" name="Id"/>
                                 <xs:element type="xs:string" name="Name"/>
-                                <xs:element type="xs:string" name="Email" nillable="true"/>
+                                <xs:element type="xs:string" name="Email" nillable="true" minOccurs="0"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>

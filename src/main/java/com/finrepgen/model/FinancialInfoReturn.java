@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -14,10 +15,11 @@ import javax.xml.bind.annotation.XmlType;
     "companyName","industryCovered",
     "peMap","epsMap","revenueMap"
 })
+@XmlRootElement(name="FinancialInfoReturn")
 public class FinancialInfoReturn implements FinancialInfo {
 	
 	@XmlElement(name = "CompanyId",required=true)
-	int companyId;
+	String companyId;
 	@XmlElement(name = "CompanyName")
 	String companyName;
 	@XmlElement(name = "IndustryCovered")
@@ -29,10 +31,10 @@ public class FinancialInfoReturn implements FinancialInfo {
 	@XmlElement(name = "RevenueMap")
 	Map<Date,Float> revenueMap;
 	
-	public int getCompanyId() {
+	public String getCompanyId() {
 		return companyId;
 	}
-	public void setCompanyId(int companyId) {
+	public void setCompanyId(String companyId) {
 		this.companyId = companyId;
 	}
 	public String getCompanyName() {

@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.finrepgen.inmemorymockdb.InMemoryMockDB;
 import com.finrepgen.model.Company;
 import com.finrepgen.model.FinancialInfoInput;
-import com.finrepgen.model.FinancialInfoReturn;
+import com.finrepgen.model.Teams;
 import com.finrepgen.util.XmlUtil;
 
 @Repository
@@ -25,14 +25,18 @@ public class FinRepGenDaoImpl implements FinRepGenDao<FinancialInfoInput> {
 	}
 
 	@Override
-	public FinancialInfoReturn getCompanyInfo(String companyId, String userId) {
-		FinancialInfoReturn finInfoRet = new FinancialInfoReturn();
+	public Company getCompanyInfo(String companyId, int userId) {
+		
 		Company comp = InMemoryMockDB.getFinInfoInput().getCompanies().getCompany().stream()
 				.filter(c -> c.getID().equals(companyId)).collect(Collectors.toList()).get(0);
 
-		// population logic to be implemented
-		return finInfoRet;
+		return comp;
 
+	}
+	
+	@Override
+	public Teams getAllTeams() {
+		return InMemoryMockDB.getFinInfoInput().getTeams();
 	}
 
 }

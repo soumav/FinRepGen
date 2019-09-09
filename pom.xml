@@ -67,7 +67,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<!-- XJC -->
-			<!-- <plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
 				<version>1.5</version>
@@ -87,7 +87,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin> -->
+			</plugin>
 			
 			<!-- SCHEMAGEN -->
 			<!-- <plugin>

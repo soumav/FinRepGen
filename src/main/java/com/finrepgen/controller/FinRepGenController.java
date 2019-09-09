@@ -49,11 +49,10 @@ public class FinRepGenController {
 
 	}
 
-	@GetMapping(path = "/getcompanyinfo", produces = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE })
+	@GetMapping(path = "/getcompanyinfo", produces = {MediaType.APPLICATION_XML_VALUE })
 	public FinancialInfoReturn getCompanyInfo(@RequestParam("compid") String compId,
-			@RequestParam("userid") String userId) {
-		System.out.println("Inside getcompanyinfo ---> compId= " + compId + " userId=" + userId);
+			@RequestParam("userid") int userId) {
+		
 		return fileService.getCompanyInfo(compId, userId);
 	}
 

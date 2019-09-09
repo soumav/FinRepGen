@@ -6,8 +6,8 @@
       <CompanyName>Britannia</CompanyName>  
       <Industry>FnB</Industry>
       <FinancialPeriodData>
-            <From>2019/01/01</From>
-            <To>2019/02/01</To>
+            <From>2019-01-01</From>
+            <To>2019-02-01</To>
             <Metrics>
               <Metric>
                 <Name>PE</Name>
@@ -27,8 +27,8 @@
             </Metrics>
       </FinancialPeriodData>
       <FinancialPeriodData>
-            <From>2019/02/01</From>
-            <To>2019/03/01</To>
+            <From>2019-02-01</From>
+            <To>2019-03-01</To>
             <Metrics>
               <Metric>
                 <Name>PE</Name>
@@ -53,8 +53,8 @@
       <CompanyName>Pepsico</CompanyName>  
       <Industry>FnB</Industry>
       <FinancialPeriodData>
-            <From>2019/01/01</From>
-            <To>2019/02/01</To>
+            <From>2019-01-01</From>
+            <To>2019-02-01</To>
             <Metrics>
               <Metric>
                 <Name>PE</Name>
@@ -74,8 +74,8 @@
             </Metrics>
       </FinancialPeriodData>
       <FinancialPeriodData>
-            <From>2019/02/01</From>
-            <To>2019/03/01</To>
+            <From>2019-02-01</From>
+            <To>2019-03-01</To>
             <Metrics>
               <Metric>
                 <Name>PE</Name>
@@ -100,8 +100,8 @@
       <CompanyName>Indigo</CompanyName>  
       <Industry>ASPC</Industry>
       <FinancialPeriodData>
-            <From>2019/01/01</From>
-            <To>2019/02/01</To>
+            <From>2019-01-01</From>
+            <To>2019-02-01</To>
             <Metrics>
               <Metric>
                 <Name>PE</Name>
@@ -121,8 +121,8 @@
             </Metrics>
       </FinancialPeriodData>
       <FinancialPeriodData>
-            <From>2019/02/01</From>
-            <To>2019/02/01</To>
+            <From>2019-02-01</From>
+            <To>2019-02-01</To>
             <Metrics>
               <Metric>
                 <Name>PE</Name>
@@ -147,8 +147,8 @@
       <CompanyName>Air India</CompanyName>  
       <Industry>ASPC</Industry>
       <FinancialPeriodData>
-            <From>2019/01/01</From>
-            <To>2019/02/01</To>
+            <From>2019-01-01</From>
+            <To>2019-02-01</To>
             <Metrics>
               <Metric>
                 <Name>PE</Name>
@@ -168,8 +168,8 @@
             </Metrics>
       </FinancialPeriodData>
       <FinancialPeriodData>
-            <From>2019/02/01</From>
-            <To>2019/03/01</To>
+            <From>2019-02-01</From>
+            <To>2019-03-01</To>
            <Metrics>
               <Metric>
                 <Name>PE</Name>
