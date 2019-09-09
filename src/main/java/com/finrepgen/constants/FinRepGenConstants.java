@@ -8,7 +8,7 @@ public enum FinRepGenConstants {
 
 	private final String val;
 	
-	public String getVal() {
+	public String val() {
 		return val;
 	}
 	

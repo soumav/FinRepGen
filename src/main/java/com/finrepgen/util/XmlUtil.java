@@ -3,8 +3,10 @@ package com.finrepgen.util;
 import java.io.File;
 import java.io.IOException;
 
+import javax.activation.DataHandler;
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
@@ -17,7 +19,7 @@ import org.xml.sax.SAXException;
 
 public class XmlUtil {
 
-	public static Object mapXmlToJava(MultipartFile file, Object obj) {
+	public static Object mapXmlToJava(MultipartFile file, Object obj) { // obj to be changed to Class
 		JAXBContext jaxbContext;
 		try {
 			Class<?> dynClass = Class.forName(obj.getClass().getName());

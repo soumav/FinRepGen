@@ -2,6 +2,7 @@ package com.finrepgen.service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -30,8 +31,20 @@ public class FinRepGenServiceImpl implements FinRepGenService<FinancialInfoInput
 	public boolean readAndStoreFile(FinancialInfoInput finInfoInp, MultipartFile xmlFile, String xsdPath) {
 		if (XmlUtil.validateXmlAgainstXsd(xmlFile, xsdPath))
 			return finRepGenDao.readAndStoreFile(xmlFile, finInfoInp);
-		else
-			return false;
+		return false;
+	}
+
+	@Override
+	public FinancialInfoInput getRawFinInfo() {
+		return finRepGenDao.getRawFinInfo();
+	}
+	
+	@Override
+	public boolean updateUserData(MultipartFile xmlFile, String xsdPath) {
+
+		if (XmlUtil.validateXmlAgainstXsd(xmlFile, xsdPath))
+			return finRepGenDao.updateUsersData(xmlFile);
+		return false;
 	}
 
 	@Override
@@ -49,15 +62,15 @@ public class FinRepGenServiceImpl implements FinRepGenService<FinancialInfoInput
 			for (FinancialPeriodData fnp : comp.getFinancialPeriodData()) {
 				epsMap.put(fnp.getFrom(),
 						(Float) fnp.getMetrics().getMetric().stream()
-								.filter(d -> FinRepGenConstants.EPS_STRING.getVal().equals(d.getName()))
+								.filter(d -> FinRepGenConstants.EPS_STRING.val().equals(d.getName()))
 								.collect(Collectors.toList()).get(0).getValue());
 				peMap.put(fnp.getFrom(),
 						(Float) fnp.getMetrics().getMetric().stream()
-								.filter(d -> FinRepGenConstants.PE_STRING.getVal().equals(d.getName()))
+								.filter(d -> FinRepGenConstants.PE_STRING.val().equals(d.getName()))
 								.collect(Collectors.toList()).get(0).getValue());
 				revenueMap.put(fnp.getFrom(),
 						(Float) fnp.getMetrics().getMetric().stream()
-								.filter(d -> FinRepGenConstants.REVENUE_STRING.getVal().equals(d.getName()))
+								.filter(d -> FinRepGenConstants.REVENUE_STRING.val().equals(d.getName()))
 								.collect(Collectors.toList()).get(0).getValue());
 			}
 			finInfoRet.setEpsMap(epsMap);

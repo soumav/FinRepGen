@@ -28,10 +28,16 @@ public class FinRepGenController {
 	 */
 
 	private String XSD_FININFO_PATH;
+	private String XSD_USERINFO_PATH;
 
 	@Value("${fininfo.xsdpath}")
 	public void setXsdFinInfoPath(String path) {
 		XSD_FININFO_PATH = new File("").getAbsolutePath().replace("\\", "/") + path;
+	}
+	
+	@Value("${userinfo.xsdpath}")
+	public void setXsdUserInfoPath(String path) {
+		XSD_USERINFO_PATH = new File("").getAbsolutePath().replace("\\", "/") + path;
 	}
 
 	@PostMapping(path = "/uploadfindata", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
@@ -41,12 +47,17 @@ public class FinRepGenController {
 
 	}
 
-	@PostMapping(path = "/updateuserdata", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-	public boolean updateUserData() {
+	@GetMapping(path = "/getrawfininfo", produces = {MediaType.APPLICATION_XML_VALUE })
+	public FinancialInfoInput getRawFinInfo() {
 		
-		//logic to be implemented
-		return true;
-
+		return fileService.getRawFinInfo();
+	}
+	
+	@PostMapping(path = "/updateuserdata", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	public boolean updateUserData(@RequestParam("file") MultipartFile uploadedFile) {
+		
+		return fileService.updateUserData(uploadedFile, XSD_USERINFO_PATH);
+		
 	}
 
 	@GetMapping(path = "/getcompanyinfo", produces = {MediaType.APPLICATION_XML_VALUE })
@@ -55,5 +66,7 @@ public class FinRepGenController {
 		
 		return fileService.getCompanyInfo(compId, userId);
 	}
+	
+	
 
 }

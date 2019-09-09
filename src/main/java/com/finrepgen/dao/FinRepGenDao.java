@@ -9,7 +9,9 @@ import com.finrepgen.model.Teams;
 public interface FinRepGenDao <T extends FinancialInfo> {
 	
 	public boolean readAndStoreFile(MultipartFile file, T t);
+	public boolean updateUsersData(MultipartFile xmlFile);
 	public Company getCompanyInfo(String companyId,int userId);
 	public Teams getAllTeams();
+	public T getRawFinInfo();
 
 }

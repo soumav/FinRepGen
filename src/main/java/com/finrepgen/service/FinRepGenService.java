@@ -8,7 +8,11 @@ import com.finrepgen.model.FinancialInfoReturn;
 public interface FinRepGenService<T extends FinancialInfo> {
 
 	public boolean readAndStoreFile(T t, MultipartFile xmlFile, String xsdPath);
+	
+	public T getRawFinInfo();
 
 	public FinancialInfoReturn getCompanyInfo(String companyId, int userId);
+
+	public boolean updateUserData(MultipartFile xmlFile, String xsdPath);
 
 }

@@ -25,9 +25,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="Id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="Name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Unit" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Value" type="{http://www.w3.org/2001/XMLSchema}float"/>
+ *         &lt;element name="Email" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,21 +38,37 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "id",
     "name",
-    "unit",
-    "value"
+    "email"
 })
-public class Metric
+public class UserInfo
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
+    @XmlElement(name = "Id")
+    protected int id;
     @XmlElement(name = "Name", required = true)
     protected String name;
-    @XmlElement(name = "Unit", required = true)
-    protected String unit;
-    @XmlElement(name = "Value")
-    protected float value;
+    @XmlElement(name = "Email", required = true)
+    protected String email;
+
+    /**
+     * Gets the value of the id property.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
 
     /**
      * Gets the value of the name property.
@@ -79,43 +95,27 @@ public class Metric
     }
 
     /**
-     * Gets the value of the unit property.
+     * Gets the value of the email property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getUnit() {
-        return unit;
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * Sets the value of the unit property.
+     * Sets the value of the email property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setUnit(String value) {
-        this.unit = value;
-    }
-
-    /**
-     * Gets the value of the value property.
-     * 
-     */
-    public float getValue() {
-        return value;
-    }
-
-    /**
-     * Sets the value of the value property.
-     * 
-     */
-    public void setValue(float value) {
-        this.value = value;
+    public void setEmail(String value) {
+        this.email = value;
     }
 
 }

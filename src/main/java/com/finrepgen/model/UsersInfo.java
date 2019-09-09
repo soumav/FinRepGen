@@ -14,6 +14,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -27,14 +28,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="User" maxOccurs="unbounded" minOccurs="0">
+ *         &lt;element name="UserInfo" maxOccurs="unbounded" minOccurs="0">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
  *                   &lt;element name="Id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *                   &lt;element name="Name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="Email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *                   &lt;element name="Email" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -50,43 +51,44 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "user"
+    "userInfo"
 })
-public class Users
+@XmlRootElement(name = "UsersInfo")
+public class UsersInfo
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "User")
-    protected List<User> user;
+    @XmlElement(name = "UserInfo")
+    protected List<UserInfo> userInfo;
 
     /**
-     * Gets the value of the user property.
+     * Gets the value of the userInfo property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the user property.
+     * This is why there is not a <CODE>set</CODE> method for the userInfo property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getUser().add(newItem);
+     *    getUserInfo().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link User }
+     * {@link UserInfo }
      * 
      * 
      */
-    public List<User> getUser() {
-        if (user == null) {
-            user = new ArrayList<User>();
+    public List<UserInfo> getUserInfo() {
+        if (userInfo == null) {
+            userInfo = new ArrayList<UserInfo>();
         }
-        return this.user;
+        return this.userInfo;
     }
 
 }

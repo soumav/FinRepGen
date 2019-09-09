@@ -82,7 +82,7 @@
 							<clearOutputDir>false</clearOutputDir>
 							<packageName>com.finrepgen.model</packageName>
 							<schemaDirectory>src/main/java/com/finrepgen/schemas</schemaDirectory>
-							<schemaFiles>FinInfo.xsd</schemaFiles>
+							<schemaFiles>FinInfo.xsd,UserInfo.xsd</schemaFiles>
 							<arguments>-extension -npa -b ${project.basedir}/src/main/java/com/finrepgen/schemas/global.xjb</arguments>
 						</configuration>
 					</execution>
