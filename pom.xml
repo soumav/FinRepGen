@@ -35,6 +35,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.xml/jaxb-api -->
 		<dependency>
@@ -46,12 +52,22 @@
 	</dependencies>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.5.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+			<!-- XJC -->
+			<!-- <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
 				<version>1.5</version>
@@ -64,14 +80,44 @@
 						<configuration>
 							<outputDirectory>src/main/java</outputDirectory>
 							<clearOutputDir>false</clearOutputDir>
-							<packageName>com.finrepgen.bean</packageName>
+							<packageName>com.finrepgen.model</packageName>
 							<schemaDirectory>src/main/java/com/finrepgen/schemas</schemaDirectory>
 							<schemaFiles>FinInfo.xsd</schemaFiles>
 							<arguments>-extension -npa -b ${project.basedir}/src/main/java/com/finrepgen/schemas/global.xjb</arguments>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
+			
+			<!-- SCHEMAGEN -->
+			<!-- <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>schemagen</id>
+						<goals>
+							<goal>schemagen</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<transformSchemas>
+						<transformSchema>
+							<uri>http://com.finrepgen/fininforeturn</uri>
+							<toPrefix>fininforeturn</toPrefix>
+							<toFile>${basedirectory}/src/main/java/com/finrepgen/schemas/fininforeturn.xsd</toFile>
+						</transformSchema>
+					</transformSchemas>
+					<includes>
+						<include>${basedirectory}/src/main/java/com/finrepgen/model/FinancialInfoReturn.java</include>
+					</includes>
+					<verbose>true</verbose>
+
+				</configuration>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
