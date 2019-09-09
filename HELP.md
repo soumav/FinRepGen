@@ -1,14 +1,21 @@
 # Getting Started
 
-### Reference Documentation
-For further reference, please consider the following sections:
+All End-Points:
+---------------
+1) Upload raw financial data:
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/maven-plugin/)
-* [Spring Web Services](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-webservices)
+	http://localhost:8080/finrepgen/uploadfindata 
+	(parameters -- key:file , input: FinInfo.xml)
 
-### Guides
-The following guides illustrate how to use some features concretely:
+2) Fetch raw financial data:
 
-* [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/)
+	http://localhost:8080/finrepgen/getrawfininfo
+	
+3) Fetch company info:
 
+	http://localhost:8080/finrepgen/getcompanyinfo?compid=PEPCO&userid=11111
+	
+4) Update user data:
+
+	http://localhost:8080/finrepgen/updateuserdata
+	(parameters -- key:file , input: UserInfo.xml)
