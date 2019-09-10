@@ -61,7 +61,7 @@ public class FinRepGenDaoImpl implements FinRepGenDao<FinancialInfoInput> {
 
 	@Override
 	public Company getCompanyInfo(String companyId, int userId) {
-		Company comp;
+		Company comp = new Company();
 		try {
 			comp = InMemoryMockDB.getFinInfoInput().getCompanies().getCompany().stream()
 					.filter(c -> c.getID().equals(companyId)).collect(Collectors.toList()).get(0);
